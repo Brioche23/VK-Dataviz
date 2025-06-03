@@ -1,0 +1,141 @@
+mail,name,city,country of residence,lives in country of residence,role,Employer Name / University,Topic of Interest,Level of Experience in Data Viz,Proficency – Data Analysis,Proficency – Data Journalism,Proficency – Storytelling,Proficency – Research,Proficency – Use of AI Tools,Proficency – Art and Graphic Design,Interest – Data Analysis,Interest – Data Journalism,Interest – Storytelling,Interest – Research,Interest – Use of AI Tools,Interest – Art and Graphic Design
+user1@example.com,Liam Smith,,United States,yes,Freelancer,,AI,Beginner,3,2,4,3,2,4,5,3,5,4,3,5
+user2@example.com,Olivia Johnson,London,United Kingdom,yes,Student,King's College,Nature,Advanced student,4,3,3,4,3,2,4,4,4,5,4,3
+user3@example.com,Noah Williams,Berlin,Germany,yes,Researcher,Max Planck Institute,Law / Policy,I am currently working on information design / data visualisation,5,4,4,5,2,3,5,4,5,5,3,4
+user4@example.com,Emma Brown,,Canada,yes,Entrepreneur,Innovatech Solutions,Visualising complexity,I'm interested in finding work related to information design / data visualisation,4,3,5,3,4,5,4,3,5,4,5,5
+user5@example.com,Oliver Jones,Paris,France,no,Employed creative professional,Creative Designs Ltd.,Resilience,Advanced student,3,4,4,3,3,4,4,5,4,4,4,5
+user6@example.com,Ava Garcia,Sydney,Australia,yes,Public servant,,Nature,Just curious,2,2,3,2,1,2,3,3,4,3,2,3
+user7@example.com,Elijah Miller,,Spain,yes,Teacher,Madrid International School,AI,Beginner,3,2,4,3,2,3,4,3,5,4,3,4
+user8@example.com,Charlotte Davis,Rome,Italy,yes,Freelancer,,Law / Policy,I am currently working on information design / data visualisation,4,4,5,4,3,4,5,5,5,5,4,5
+user9@example.com,William Rodriguez,Toronto,Canada,yes,Student,University of Toronto,Visualising complexity,Advanced student,5,3,3,4,4,2,5,4,4,5,5,3
+user10@example.com,Sophia Wilson,,United States,no,Researcher,Tech Labs Inc.,Resilience,I'm interested in finding work related to information design / data visualisation,4,3,4,5,2,3,4,4,5,5,3,4
+user11@example.com,James Martinez,New York,United States,yes,Entrepreneur,,Nature,Beginner,3,2,3,2,3,4,4,3,4,3,4,5
+user12@example.com,Isabella Anderson,Manchester,United Kingdom,yes,Employed creative professional,Media Group UK,AI,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user13@example.com,Benjamin Thomas,,Germany,yes,Public servant,Federal Office,Law / Policy,Advanced student,3,3,3,4,2,2,4,4,4,4,3,3
+user14@example.com,Mia Jackson,Lyon,France,no,Teacher,,Visualising complexity,Just curious,2,1,2,2,1,2,3,2,3,3,2,3
+user15@example.com,Lucas White,,Australia,yes,Freelancer,DesignCo,Resilience,Beginner,3,2,4,3,2,4,4,3,5,4,3,5
+user16@example.com,Amelia Harris,Melbourne,Australia,yes,Student,Monash University,Nature,I'm interested in finding work related to information design / data visualisation,4,3,3,4,3,3,5,4,4,5,4,4
+user17@example.com,Henry Martin,,Canada,yes,Researcher,,AI,I am currently working on information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user18@example.com,Evelyn Thompson,Barcelona,Spain,yes,Entrepreneur,Startup Solutions,Law / Policy,Advanced student,4,3,5,3,3,5,4,3,5,4,4,5
+user19@example.com,Alexander Garcia,,United States,no,Employed creative professional,Global Ad Agency,Visualising complexity,Beginner,3,4,4,3,2,4,4,5,4,4,3,5
+user20@example.com,Harper Martinez,Milan,Italy,yes,Public servant,,Resilience,I'm interested in finding work related to information design / data visualisation,2,2,3,2,1,2,3,3,4,3,2,3
+user21@example.com,Sebastian Robinson,Vancouver,Canada,yes,Teacher,Vancouver School Board,Nature,Just curious,3,2,4,3,2,3,4,3,5,4,3,4
+user22@example.com,Abigail Clark,,United Kingdom,yes,Freelancer,,AI,I am currently working on information design / data visualisation,4,4,5,4,3,4,5,5,5,5,4,5
+user23@example.com,Ethan Rodriguez,Los Angeles,United States,yes,Student,UCLA,Law / Policy,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user24@example.com,Emily Lewis,,Germany,no,Researcher,German Research Center,Visualising complexity,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user25@example.com,Michael Lee,Chicago,United States,yes,Entrepreneur,InnovateX,Resilience,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user26@example.com,Madison Walker,,France,yes,Employed creative professional,Artisan Studio,Nature,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user27@example.com,Daniel Hall,Munich,Germany,yes,Public servant,,AI,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user28@example.com,Chloe Allen,,Australia,no,Teacher,Sydney Grammar,Law / Policy,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user29@example.com,Matthew Young,Perth,Australia,yes,Freelancer,,Visualising complexity,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user30@example.com,Grace King,,Canada,yes,Student,McGill University,Resilience,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user31@example.com,Joseph Wright,San Francisco,United States,yes,Researcher,Future Studies Institute,Nature,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user32@example.com,Victoria Scott,,United Kingdom,no,Entrepreneur,GreenTech Global,AI,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user33@example.com,Samuel Green,Hamburg,Germany,yes,Employed creative professional,MediaHaus GmbH,Law / Policy,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user34@example.com,Riley Adams,,Spain,yes,Public servant,Ministry of Culture,Visualising complexity,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user35@example.com,Aiden Baker,Valencia,Spain,yes,Teacher,,Resilience,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user36@example.com,Scarlett Nelson,,Italy,no,Freelancer,Design Hub Italy,Nature,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user37@example.com,David Carter,Naples,Italy,yes,Student,University of Naples,AI,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user38@example.com,Penelope Mitchell,,France,yes,Researcher,,Law / Policy,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user39@example.com,Ryan Perez,Marseille,France,yes,Entrepreneur,SoInnovate,Visualising complexity,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user40@example.com,Lily Roberts,,United States,no,Employed creative professional,Digital Impact Agency,Resilience,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user41@example.com,Jack Turner,Boston,United States,yes,Public servant,,Nature,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user42@example.com,Zoey Phillips,,Canada,yes,Teacher,Calgary Board of Education,AI,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user43@example.com,Luke Campbell,Montreal,Canada,yes,Freelancer,,Law / Policy,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user44@example.com,Hannah Parker,,United Kingdom,no,Student,University of Cambridge,Visualising complexity,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user45@example.com,Gabriel Evans,Oxford,United Kingdom,yes,Researcher,Oxford Research Group,Resilience,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user46@example.com,Nora Edwards,,Germany,yes,Entrepreneur,EcoFuture GmbH,Nature,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user47@example.com,Anthony Collins,Frankfurt,Germany,yes,Employed creative professional,Brand Moverz,AI,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user48@example.com,Eleanor Stewart,,Australia,no,Public servant,State Government NSW,Law / Policy,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user49@example.com,Isaac Morris,Brisbane,Australia,yes,Teacher,,Visualising complexity,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user50@example.com,Audrey Cook,,Spain,yes,Freelancer,Spanish Creatives,Resilience,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user51@example.com,Christopher Murphy,Seville,Spain,yes,Student,University of Seville,Nature,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user52@example.com,Claire Bailey,,Italy,no,Researcher,Italian National Research Council,AI,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user53@example.com,Joshua Rivera,Turin,Italy,yes,Entrepreneur,FoodTech Italia,Law / Policy,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user54@example.com,Anna Cooper,,France,yes,Employed creative professional,Parisian Design House,Visualising complexity,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user55@example.com,Andrew Price,Nice,France,yes,Public servant,,Resilience,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user56@example.com,Leah Bell,,United States,no,Teacher,NYC Department of Education,Nature,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user57@example.com,Julian Ramirez,Houston,United States,yes,Freelancer,,AI,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user58@example.com,Stella Cox,,Canada,yes,Student,University of British Columbia,Law / Policy,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user59@example.com,Eli Howard,Edmonton,Canada,yes,Researcher,Alberta Innovates,Visualising complexity,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user60@example.com,Maya Ward,,United Kingdom,no,Entrepreneur,Sustainable Ventures UK,Resilience,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user61@example.com,Aaron Peterson,Birmingham,United Kingdom,yes,Employed creative professional,Midlands Creative,Nature,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user62@example.com,Natalie Gray,,Germany,yes,Public servant,City of Cologne,AI,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user63@example.com,Nathan James,Stuttgart,Germany,yes,Teacher,,Law / Policy,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user64@example.com,Skylar Watson,,Australia,no,Freelancer,Aussie Gigs,Visualising complexity,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user65@example.com,Christian Brooks,Adelaide,Australia,yes,Student,University of Adelaide,Resilience,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user66@example.com,Hailey Sanders,,Spain,yes,Researcher,Spanish Institute of Science,Nature,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user67@example.com,Jonathan Price,Malaga,Spain,yes,Entrepreneur,,AI,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user68@example.com,Aubrey Bennett,,Italy,no,Employed creative professional,Roman Style Inc.,Law / Policy,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user69@example.com,Charles Wood,Bologna,Italy,yes,Public servant,,Visualising complexity,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user70@example.com,Addison Barnes,,France,yes,Teacher,International School of Paris,Resilience,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user71@example.com,Levi Ross,Toulouse,France,yes,Freelancer,,Nature,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user72@example.com,Ellie Henderson,,United States,no,Student,Stanford University,AI,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user73@example.com,Josiah Coleman,Seattle,United States,yes,Researcher,Pacific Northwest Labs,Law / Policy,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user74@example.com,Brooklyn Simmons,,Canada,yes,Entrepreneur,CanInnovate Corp.,Visualising complexity,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user75@example.com,Caleb Jenkins,Ottawa,Canada,yes,Employed creative professional,National Arts Centre,Resilience,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user76@example.com,Paisley Perry,,United Kingdom,no,Public servant,UK Government Digital Service,Nature,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user77@example.com,Ezekiel Powell,Glasgow,United Kingdom,yes,Teacher,,AI,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user78@example.com,Mackenzie Long,,Germany,yes,Freelancer,Berlin Freelance Collective,Law / Policy,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user79@example.com,Isaiah Patterson,Düsseldorf,Germany,yes,Student,Heinrich Heine University,Visualising complexity,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user80@example.com,Genesis Hughes,,Australia,no,Researcher,CSIRO,Resilience,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user81@example.com,Dominic Flores,Gold Coast,Australia,yes,Entrepreneur,Coastal Startups,Nature,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user82@example.com,Madelyn Morales,,Spain,yes,Employed creative professional,Iberia Design,AI,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user83@example.com,Adam Washington,Bilbao,Spain,yes,Public servant,,Law / Policy,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user84@example.com,Willow Price,,Italy,no,Teacher,Florence International School,Visualising complexity,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user85@example.com,Jason Sanders,Genoa,Italy,yes,Freelancer,,Resilience,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user86@example.com,Kaylee Simmons,,France,yes,Student,Sorbonne University,Nature,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user87@example.com,Brandon Bryant,Lille,France,yes,Researcher,,AI,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user88@example.com,Kylie Coleman,,United States,no,Entrepreneur,US Tech Ventures,Law / Policy,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user89@example.com,Kevin Foster,San Diego,United States,yes,Employed creative professional,West Coast Designs,Visualising complexity,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user90@example.com,Allison Griffin,,Canada,yes,Public servant,Government of Canada,Resilience,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user91@example.com,Justin Barnes,Quebec City,Canada,yes,Teacher,,Nature,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user92@example.com,Taylor Diaz,,United Kingdom,no,Freelancer,UK Creative Network,AI,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user93@example.com,Lauren Russell,Liverpool,United Kingdom,yes,Student,University of Liverpool,Law / Policy,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user94@example.com,Tyler Hayes,,Germany,yes,Researcher,Fraunhofer Society,Visualising complexity,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user95@example.com,Nicole Myers,Dortmund,Germany,yes,Entrepreneur,Ruhr Valley Innovations,Resilience,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user96@example.com,Ashley Simmons,,Australia,no,Employed creative professional,OzMedia Solutions,Nature,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user97@example.com,Brian Howard,Canberra,Australia,yes,Public servant,,AI,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user98@example.com,Jessica Peterson,,Spain,yes,Teacher,Barcelona International School,Law / Policy,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user99@example.com,Eric Gray,Zaragoza,Spain,yes,Freelancer,,Visualising complexity,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user100@example.com,Brittany James,,Italy,no,Student,Sapienza University of Rome,Resilience,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user101@example.com,Thomas Watson,Palermo,Italy,yes,Researcher,,Nature,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user102@example.com,Christina Brooks,,France,yes,Entrepreneur,FrenchTech Connect,AI,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user103@example.com,Jordan Sanders,Bordeaux,France,yes,Employed creative professional,Aquitaine Design,Law / Policy,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user104@example.com,Rachel Price,,United States,no,Public servant,US Federal Government,Visualising complexity,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user105@example.com,Adam Bennett,Philadelphia,United States,yes,Teacher,,Resilience,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user106@example.com,Megan Wood,,Canada,yes,Freelancer,Canada Freelance Union,Nature,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user107@example.com,Nicholas Barnes,Winnipeg,Canada,yes,Student,University of Manitoba,AI,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user108@example.com,Katherine Ross,,United Kingdom,no,Researcher,UK Research and Innovation,Law / Policy,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user109@example.com,Kyle Henderson,Bristol,United Kingdom,yes,Entrepreneur,West England Ventures,Visualising complexity,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user110@example.com,Amber Coleman,,Germany,yes,Employed creative professional,German Design Group,Resilience,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user111@example.com,Dylan Simmons,Leipzig,Germany,yes,Public servant,,Nature,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user112@example.com,Paige Perry,,Australia,no,Teacher,Melbourne High,AI,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user113@example.com,Patrick Powell,Hobart,Australia,yes,Freelancer,,Law / Policy,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user114@example.com,Brooke Long,,Spain,yes,Student,Complutense University of Madrid,Visualising complexity,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user115@example.com,Sean Patterson,Murcia,Spain,yes,Researcher,,Resilience,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user116@example.com,Sara Hughes,,Italy,no,Entrepreneur,Italian Innovation Hub,Nature,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user117@example.com,Derek Flores,Catania,Italy,yes,Employed creative professional,Sicily Creative,AI,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user118@example.com,Erica Morales,,France,yes,Public servant,French National Agency,Law / Policy,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user119@example.com,Austin Washington,Strasbourg,France,yes,Teacher,,Visualising complexity,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user120@example.com,Tiffany Price,,United States,no,Freelancer,USA Creative Collective,Resilience,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user121@example.com,Gregory Sanders,Phoenix,United States,yes,Student,Arizona State University,Nature,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user122@example.com,Maria Simmons,,Canada,yes,Researcher,National Research Council Canada,AI,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user123@example.com,Jose Bryant,Halifax,Canada,yes,Entrepreneur,Atlantic Tech,Law / Policy,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user124@example.com,Diamond Coleman,,United Kingdom,no,Employed creative professional,London Digital,Visualising complexity,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user125@example.com,Carlos Foster,Edinburgh,United Kingdom,yes,Public servant,,Resilience,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user126@example.com,Valerie Griffin,,Germany,yes,Teacher,Berlin Metropolitan School,Nature,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3
+user127@example.com,Timothy Barnes,Bremen,Germany,yes,Freelancer,,AI,Just curious,3,2,4,3,2,4,4,3,5,4,3,5
+user128@example.com,Vanessa Diaz,,Australia,no,Student,University of Sydney,Law / Policy,Beginner,4,3,3,4,3,3,5,4,4,5,4,4
+user129@example.com,Jason Russell,Darwin,Australia,yes,Researcher,,Visualising complexity,I'm interested in finding work related to information design / data visualisation,5,4,4,5,4,3,5,4,5,5,5,4
+user130@example.com,Rebecca Hayes,,Spain,yes,Entrepreneur,Spanish Startups,Resilience,I am currently working on information design / data visualisation,4,3,5,3,3,5,4,3,5,4,4,5
+user131@example.com,William Myers,Alicante,Spain,yes,Employed creative professional,Costa Blanca Designs,Nature,Advanced student,3,4,4,3,2,4,4,5,4,4,3,5
+user132@example.com,Stephanie Howard,,Italy,no,Public servant,Italian Government,AI,Beginner,2,2,3,2,1,2,3,3,4,3,2,3
+user133@example.com,Mark Peterson,Verona,Italy,yes,Teacher,,Law / Policy,I'm interested in finding work related to information design / data visualisation,3,2,4,3,2,3,4,3,5,4,3,4
+user134@example.com,Jennifer Gray,,France,yes,Freelancer,France Freelancers United,Visualising complexity,Just curious,4,4,5,4,3,4,5,5,5,5,4,5
+user135@example.com,Richard James,Montpellier,France,yes,Student,University of Montpellier,Resilience,Beginner,5,3,3,4,4,2,5,4,4,5,5,3
+user136@example.com,Michelle Watson,,United States,no,Researcher,American Institutes for Research,Nature,Advanced student,4,3,4,5,2,3,4,4,5,5,3,4
+user137@example.com,Douglas Brooks,Dallas,United States,yes,Entrepreneur,Texas Innovations,AI,I'm interested in finding work related to information design / data visualisation,3,2,3,2,3,4,4,3,4,3,4,5
+user138@example.com,Courtney Sanders,,Canada,yes,Employed creative professional,Toronto Ad Solutions,Law / Policy,I am currently working on information design / data visualisation,4,4,4,3,4,5,5,4,5,4,5,5
+user139@example.com,George Price,Victoria,Canada,yes,Public servant,,Visualising complexity,Beginner,3,3,3,4,2,2,4,4,4,4,3,3
+user140@example.com,Melissa Bennett,,United Kingdom,no,Teacher,The Manchester Grammar School,Resilience,Advanced student,2,1,2,2,1,2,3,2,3,3,2,3

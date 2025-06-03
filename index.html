@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VK | Badge Generator</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js "></script>
+</head>
+
+<body>
+
+
+
+    <header>
+        <h1>BADGE</h1>
+    </header>
+
+    <main class="svg-wrapper">
+        <section class="content-wrapper">
+
+            <div class="input">
+                <form action="">
+                    <input id="mail-input" type="text" title="mail" placeholder="YOUR MAIL" />
+                    <button id="input-button" type="button">Create your badge</button>
+                </form>
+            </div>
+            <div class="data">
+                <p>Name Surname</p>
+                <p>Data 1</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur blanditiis est ut perspiciatis
+                    commodi?
+                    Quia quidem sapiente facere iure in aspernatur praesentium atque tenetur minus, placeat facilis
+                    aperiam corrupti quam.</p>
+            </div>
+        </section>
+        <svg id="badge-visualization">
+            <defs>
+                <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="28%" stop-color="var(--background)" />
+                    <stop offset="100%" stop-color="var(--background-0)" />
+                </radialGradient>
+                <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="80%" stop-color="var(--shadow-inner)" />
+                    <stop offset="85%" stop-color="var(--shadow-mid)" />
+                    <stop offset="100%" stop-color="var(--shadow-outer)" />
+
+                </radialGradient>
+                <radialGradient id="grad-i" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="85%" stop-color="var(--background)" />
+                    <stop offset="90%" stop-color="var(--background)" />
+                    <stop offset="100%" stop-color="var(--background)" />
+                </radialGradient>
+            </defs>
+            <g id="main">
+                <g class="leaves"></g>
+                <g class="leaves-2"></g>
+                <!-- <g class="leaves-3"></g> -->
+                <g class="circles"></g>
+                <g class="links"></g>
+                <g class="nodes"></g>
+                <g class="petal-values"></g>
+                <!-- <g class="lollipops"></g> -->
+            </g>
+        </svg>
+
+
+    </main>
+    <footer>
+        <div class="logo">
+            <p>
+                VISUALIZING
+            </p>
+            <p class="spaced">
+                RESILIENCE
+            </p>
+        </div>
+        <div class="logo">
+            <p>
+                VK
+            </p>
+            <p>
+                25
+            </p>
+        </div>
+    </footer>
+
+
+    <script type="module" src="badgeGeneration.js"></script>
+</body>
+
+</html>
