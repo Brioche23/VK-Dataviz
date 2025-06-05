@@ -15,28 +15,65 @@
 
 
 
-    <header>
+    <!-- <header>
         <h1>BADGE</h1>
-    </header>
+    </header> -->
 
     <main class="svg-wrapper">
-        <section class="content-wrapper">
 
-            <div class="input">
+        <div class=" modal-wrapper top ">
+            <div class="legend modal-item">
+                <div class="legend-row shapes">
+                    <div class="legend-element">
+
+
+                        <svg width="12px" height="12px" viewBox="0 0 10 10">
+                            <g>
+                                <circle r="5" cx="5" cy="5"></circle>
+                            </g>
+                        </svg>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="legend-element">
+
+                        <svg width="12px" height="12px" viewBox="0 0 10 10" style="overflow: visible;">
+                            <g>
+                                <rect class="interest-square" width="10" height="10" rx="2"></rect>
+                            </g>
+                        </svg>
+                        <p>Interest</p>
+                    </div>
+                </div>
+                <div id="color-legend" class="legend-row colors">
+
+                </div>
+            </div>
+
+            <div class="input modal-item ">
                 <form action="">
                     <input id="mail-input" type="text" title="mail" placeholder="YOUR MAIL" />
-                    <button id="input-button" type="button">Create your badge</button>
+                    <button id="input-button" type="button">Find your badge</button>
                 </form>
             </div>
-            <div class="data">
-                <p>Name Surname</p>
-                <p>Data 1</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur blanditiis est ut perspiciatis
-                    commodi?
-                    Quia quidem sapiente facere iure in aspernatur praesentium atque tenetur minus, placeat facilis
-                    aperiam corrupti quam.</p>
+
+        </div>
+        <div class="modal-wrapper bottom ">
+
+            <div id="reload-modal" class="modal-item vertical">
+                <p>Look's like there's new data!</p>
+                <button id="reload-button" type="button">Reload</button>
             </div>
-        </section>
+            <div class="data modal-item">
+                <h2 id="name"></h2>
+                <!-- <p id="role"></p>
+                <p id="country"></p>
+                <p id="topic"></p>
+                <p id="experience"></p> -->
+                <!-- <div id="skills"> -->
+
+            </div>
+        </div>
+        </div>
         <svg id="badge-visualization">
             <defs>
                 <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">

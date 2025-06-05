@@ -1,6 +1,6 @@
 import { polarToCartesian } from "./utils/utils.js"
 
-export function drawChart(root, scales, svg, w, h) {
+export function drawChart(root, scales, svg, w, h, zoomLevel) {
   const endNodes = root.descendants().filter((d) => d.depth === root.height)
 
   const animationDuration = 800
@@ -27,7 +27,7 @@ export function drawChart(root, scales, svg, w, h) {
 
   drawLeaves()
 
-  drawNodes(endNodes)
+  drawNodes(root.descendants())
 
   drawLinks()
 
@@ -74,20 +74,22 @@ export function drawChart(root, scales, svg, w, h) {
       .join("path")
       .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
       .classed("leaf-2 leaf", true)
-    svg
-      .select("g.leaves-3")
-      .selectAll(".leaf")
-      .data(descendantsSubGroup3)
-      .join("path")
-      .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
-      .classed("leaf-2 leaf", true)
+      .on("click", (e, d) => console.log("Petalo del ramo", d.ancestors()))
+    // svg
+    //   .select("g.leaves-3")
+    //   .selectAll(".leaf")
+    //   .data(descendantsSubGroup3)
+    //   .join("path")
+    //   .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
+    //   .classed("leaf-2 leaf", true)
   }
 
-  function drawNodes(endNodes) {
+  function drawNodes(nodes) {
+    console.log("update")
     svg
       .select("g.nodes")
       .selectAll("circle.node")
-      .data(endNodes)
+      .data(nodes)
       .join("circle")
       .classed("node", true)
       .attr("id", (d) => `mail-${d.data.mail}`)
@@ -95,6 +97,19 @@ export function drawChart(root, scales, svg, w, h) {
       .attr("cy", (d) => h / 2 + d.computedY)
       .attr("r", (d) => 0)
       .attr("stroke", "black")
+
+    svg
+      .select("g.nodes")
+      .selectAll("text.node-label")
+      .data(nodes, (d, i) => `label-${d.depth}-${d.data[0]}-${i}`)
+      .join("text")
+      .classed("node-label", true)
+      .text((d) => d.data[0])
+      .attr("id", (d, i) => `label-${d.depth}-${d.data[0]}-${i}`)
+      .attr("x", (d, i) => w / 2 + d.computedX + (i % 10))
+      .attr("y", (d, i) => h / 2 + d.computedY + (i % 10))
+      .attr("transform", `rotate(${-40})`)
+      .attr("visibility", (d) => (d.depth === 1 ? "visible" : "hidden"))
   }
 
   function drawLinks() {
@@ -175,14 +190,23 @@ export function drawChart(root, scales, svg, w, h) {
           .append("circle")
           .attr("cx", 0)
           .attr("cy", 0)
-          .attr("r", scales.size(winnerProfSkill.proficency) + 2)
+          .attr("r", scales.sizePetals(winnerProfSkill.proficency) + 2)
           .attr("fill", scales.color(winnerProfSkill.name))
           .attr("opacity", 0.9)
           .attr("stroke", "#222")
           .attr("stroke-width", 0.5)
 
+        d3.select(this)
+
+          .append("text")
+          .classed("petal-label", true)
+          .text((d) => "Testo")
+
+          .attr("x", 0)
+          .attr("y", 0)
+
         // Draw winner interest as a rounded rectangle (at center, shifted right)
-        const rectSide = scales.size(winnerIntSkill.interest) * 3
+        const rectSide = scales.sizePetals(winnerIntSkill.interest) * 3
         d3.select(this)
           .append("rect")
           .attr("x", 0)
@@ -268,28 +292,28 @@ export function drawChart(root, scales, svg, w, h) {
   //   }
 
   function updateChart(endNodes) {
-    svg
-      .select("g.nodes")
-      .selectAll("circle.node")
-      .data(endNodes)
-      .join("circle")
-      .classed("node", true)
-      .on("click", function (e, d) {
-        d3.select(this).style("fill", "red")
-        const x = +d3.select(this).attr("cx")
-        const y = +d3.select(this).attr("cy")
-        const k = 3
+    // svg
+    //   .select("g.nodes")
+    //   .selectAll("circle.node")
+    //   .data(endNodes)
+    //   .join("circle")
+    //   .classed("node", true)
+    //   .on("click", function (e, d) {
+    //     d3.select(this).style("fill", "red")
+    //     const x = +d3.select(this).attr("cx")
+    //     const y = +d3.select(this).attr("cy")
+    //     const k = 3
 
-        d3.select("svg")
-          .transition()
-          .call(zoom.transform, d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + w / k / 2))
-      })
-      .transition()
-      .duration(animationDuration)
+    //     d3.select("svg")
+    //       .transition()
+    //       .call(zoom.transform, d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + w / k / 2))
+    //   })
+    //   .transition()
+    //   .duration(animationDuration)
 
-      .ease(d3.easeLinear)
-      .delay((d, i) => d.depth * delay + i * offset)
-      .attr("r", (d) => 2)
+    //   .ease(d3.easeLinear)
+    //   .delay((d, i) => d.depth * delay + i * offset)
+    //   .attr("r", (d) => 2)
     // .attr("fill", (d) => (d.data.topic ? color(d.data.topic) : ""))
 
     svg
