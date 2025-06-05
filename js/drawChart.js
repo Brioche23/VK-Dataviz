@@ -123,7 +123,7 @@ export function drawChart(root, scales, svg, w, h) {
       .attr("id", (d, i) => `label-${d.depth}-${d.data[0]}-${i}`)
       .attr("x", (d, i) => w / 2 + d.computedX + (i % 10))
       .attr("y", (d, i) => h / 2 + d.computedY + (i % 10))
-      .attr("transform", `rotate(${-40})`)
+      // .attr("transform", `rotate(${-40})`)
       .attr("visibility", (d) => (d.depth === 1 ? "visible" : "hidden"))
   }
 

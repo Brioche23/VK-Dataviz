@@ -208,10 +208,11 @@ footer {
 
 .petal-label,
 .node-label {
-  transform-origin: 0 0;
-  transform-box: fill-box;
+  /* fill: var(--white); */
+  fill: #5552cc;
+  /* transform-origin: 0 0;
+  transform-box: fill-box; */
   opacity: 0;
-  fill: var(--white);
   font-size: 5px;
 }
 .modal-wrapper {

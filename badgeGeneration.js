@@ -39,8 +39,13 @@ function zoomed(e) {
   const { x, y, k } = e.transform
   zoomLevel = k
   console.log(zoomLevel)
-  zoomLevel > zoomTreshold && d3.selectAll(".node-label").style("opacity", "1")
-  zoomLevel < zoomTreshold && d3.selectAll(".node-label").style("opacity", "0")
+
+  if (zoomLevel > zoomTreshold) {
+    d3.selectAll(".node-label").style("opacity", "1")
+  }
+  if (zoomLevel < zoomTreshold) {
+    d3.selectAll(".node-label").style("opacity", "0")
+  }
   svg.attr("transform", "translate(" + x + "," + y + ")" + " scale(" + k + ")")
 }
 
