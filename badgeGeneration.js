@@ -20,10 +20,10 @@ const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 let currentRawData = []
 let zoomLevel = 0
 
-const zoomTreshold = 3
+const zoomThreshold = 3
 // let prevDataLen
 
-const zoom = d3.zoom().on("zoom", zoomed)
+const zoom = d3.zoom().scaleExtent([0.5, 10]).on("zoom", zoomed)
 
 const loadingDiv = d3.select("#loading").style("visibility", "block")
 
@@ -35,22 +35,18 @@ const svg = d3
   .select("g")
   .style("opacity", 0)
 
-const reloadModal = d3.select("#reload-modal").style("opacity", 0)
+const reloadModal = d3.select("#reload-modal").style("display", "none")
 
 function zoomed(e) {
   const { x, y, k } = e.transform
   zoomLevel = k
-  console.log(zoomLevel)
 
-  if (zoomLevel > zoomTreshold) {
-    d3.selectAll(".petal-label").style("opacity", "1")
-    d3.selectAll(".node-label").style("opacity", "1")
-  }
-  if (zoomLevel < zoomTreshold) {
-    d3.selectAll(".petal-label").style("opacity", "0")
-    d3.selectAll(".node-label").style("opacity", "0")
-  }
-  svg.attr("transform", "translate(" + x + "," + y + ")" + " scale(" + k + ")")
+  // Toggle labels based on zoom level
+  const showLabels = k > zoomThreshold
+  d3.selectAll(".petal-label, .node-label").style("opacity", showLabels ? 1 : 0)
+
+  // Always apply transform - D3 handles the limits
+  svg.attr("transform", e.transform)
 }
 
 function zoomToNode(root, scales) {
@@ -97,9 +93,14 @@ function fetchAndDraw() {
     if (currentRawData.length === 0) draw()
     else if (rawData.length !== currentRawData.length) {
       // Attivo pulsante / modal che mi fa
-      reloadModal.style("opacity", 1)
+      reloadModal
+        .style("display", "flex")
+        .style("opacity", 0)
+        .transition()
+        .duration(300)
+        .style("opacity", 1)
       reloadModal.on("click", function () {
-        d3.select(this).style("opacity", 0)
+        d3.select(this).transition().duration(300).style("opacity", 0).style("display", "none")
         draw()
       })
     }
@@ -115,6 +116,11 @@ function fetchAndDraw() {
 
       const scales = computeScales(cleanData)
       const buttonInput = d3.select("#input-button").on("click", () => zoomToNode(root, scales))
+      d3.select("#mail-input").on("keydown", function (event) {
+        if (event.key === "Enter") {
+          zoomToNode(root, scales)
+        }
+      })
 
       // TODO se i dati sono diversi (rawData.length) dai precedenti chiama
       drawChart(root, scales, svg, w, h, isSafari)

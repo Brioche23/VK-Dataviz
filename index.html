@@ -50,7 +50,7 @@
             </div>
 
             <div class="input modal-item ">
-                <form action="">
+                <form action="" onsubmit="return false;">
                     <input id="mail-input" type="text" title="mail" placeholder="YOUR MAIL" />
                     <button id="input-button" type="button">Find your badge</button>
                 </form>
@@ -65,7 +65,7 @@
             </div>
             <div class="data modal-item">
                 <p id="breadcrumbs"></p>
-                <h2 id="name"></h2>
+                <h2 id="name">Tap on a petal and explore</h2>
                 <!-- <p id="role"></p>
                 <p id="country"></p>
                 <p id="topic"></p>
@@ -102,6 +102,10 @@
                 <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                     <stop offset="50%" stop-color="var(--background)" />
                     <stop offset="100%" stop-color="var(--background-0)" />
+                </radialGradient>
+                <radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="50%" stop-color="var(--lightblue-4)" />
+                    <stop offset="100%" stop-color="var(--lightblue-3)" />
                 </radialGradient>
                 <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                     <stop offset="80%" stop-color="var(--shadow-inner)" />

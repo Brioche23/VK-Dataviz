@@ -1,7 +1,7 @@
 export function fillDataFields(node, scales) {
   createBreadcrumbsFromNode(node)
   const name = document.querySelector("#name")
-  name.style.visibility = ""
+  name.style.display = "block"
   name.innerHTML = node.data.name
   //   const country = document.querySelector("#country")
   //   country.innerHTML = node.data.country
@@ -31,9 +31,10 @@ export function fillDataFields(node, scales) {
 export function createBreadcrumbsFromNode(node) {
   const name = document.querySelector("#name")
   name.innerHTML = ""
-  name.style.visibility = "hidden"
-  const role = document.querySelector("#breadcrumbs")
-  role.innerHTML = ""
+  name.style.display = "none"
+  const crumbs = document.querySelector("#breadcrumbs")
+  crumbs.style.display = "block"
+  crumbs.innerHTML = ""
   const labels = ["Topic", "Role", "IDx exp."]
 
   console.log(node.ancestors())
@@ -58,13 +59,13 @@ export function createBreadcrumbsFromNode(node) {
 
     container.appendChild(labelSpan)
     container.appendChild(valueSpan)
-    role.appendChild(container)
+    crumbs.appendChild(container)
 
     if (idx < ancestors.length - 1) {
       const sep = document.createElement("span")
       sep.textContent = " > "
       sep.style.margin = "0 4px"
-      role.appendChild(sep)
+      crumbs.appendChild(sep)
     }
   })
 }

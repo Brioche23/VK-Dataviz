@@ -16,17 +16,32 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
 
         const polygonPoints = calculateAllCoordinates(nodes, scales, dimensions)
 
-        const pathString =
-          polygonPoints.reduce((path, point, i) => {
-            return path + (i === 0 ? `M ${point.x},${point.y}` : ` L ${point.x},${point.y}`)
-          }, "") + " Z"
+        console.log(polygonPoints)
+
+        const lineGen = d3
+          .line()
+          .x((d) => d.x)
+          .y((d) => d.y)
+          .curve(d3.curveCardinalClosed.tension(0.6))
+
+        const pathString = lineGen(polygonPoints)
+        // polygonPoints.reduce((path, point, i) => {
+        //   return (
+        //     path +
+        //     (i === 0
+        //       ? `M ${point.x},${point.y}`
+        //       : ` C ${point.x + 1},${point.y + 1} ${point.x},${point.y} ${point.x - 1},${
+        //           point.y - 1
+        //         }`)
+        //   )
+        // }, "") + " Z"
 
         // BG Polygon
         groups
           .append("path")
           .classed("hex", true)
           .attr("d", pathString)
-          .attr("fill", "rgba(255, 255, 255, 0.75)")
+
           .style("opacity", 0)
           .transition()
           .duration(800)
@@ -98,11 +113,11 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
         // Line
         skillGroup
           .append("line")
+          .classed("lollipop-line", true)
           .attr("x1", 0)
           .attr("y1", 0)
           .attr("x2", 0)
           .attr("y2", 0)
-          .attr("stroke", "black")
           .attr("stroke-width", 0.1)
           .attr("opacity", 0)
           .transition()
@@ -112,7 +127,7 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
           .attr("x2", coords.line.x)
           .attr("y2", coords.line.y)
           .attr("opacity", 1)
-          .attr("stroke-width", 1)
+          .attr("stroke-width", 0.5)
 
         // Proficiency dot
         skillGroup
@@ -277,8 +292,8 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
     const padding = 6
 
     nodes.forEach((node) => {
-      const nodeX = w / 2 + node.computedX
-      const nodeY = h / 2 + node.computedY
+      // const nodeX = w / 2 + node.computedX
+      // const nodeY = h / 2 + node.computedY
 
       node.data.skills.forEach((skill, index) => {
         const coords = calculateCoordinates(skill, index, node.data.skills.length, scales, padding)

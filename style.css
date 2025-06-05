@@ -11,8 +11,11 @@
   --purple: #5552cc;
   --lightblue-0: #95caea00;
   --lightblue-50: #95caea75;
+  --lightblue-75: #95caeac9;
   --lightblue: #95c9ea;
   --lightblue-2: #b0dbf6;
+  --lightblue-4: #c6e9ff;
+  --lightblue-3: #f2faff;
   --acqua: #01a0ac;
 
   --shadow-inner: var(--purple-0);
@@ -60,6 +63,9 @@ body {
   overflow: hidden;
   font-size: 0.8rem;
   /* gap: var(--spacing); */
+
+  touch-action: manipulation;
+  overscroll-behavior: contain;
 }
 
 h1,
@@ -92,15 +98,6 @@ main {
   /* padding: var(--spacing); */
   flex: 1;
   position: relative;
-}
-
-svg {
-  /* background-color: var(--acqua); */
-  /* width: 100%; */
-  /* width: 100%;
-  height: 100%; */
-  /* border-radius: var(--rounded-xl); */
-  /* border: 1px solid var(--acqua); */
 }
 
 #badge-visualization {
@@ -139,7 +136,7 @@ form,
 input {
   /* font-family: "DM Sans"; */
   transition: outline, background-color 200ms ease-in-out;
-  background-color: var(--background);
+  background-color: var(--white);
   outline: 1px solid var(--purple);
   border: 0px;
   border-radius: 10px;
@@ -154,7 +151,7 @@ input::placeholder {
 
 input:focus {
   outline: 3px solid var(--purple);
-  background-color: var(--acqua);
+  background-color: var(--white);
 }
 
 #mail-input {
@@ -186,8 +183,12 @@ button:hover {
   color: var(--white);
 }
 
+#breadcrumbs {
+  display: none;
+}
+
 footer {
-  width: 100%;
+  width: calc(100vw - 2 * var(--spacing));
   display: flex;
   place-content: space-between;
 
@@ -206,6 +207,10 @@ footer {
 
 .node:hover {
   r: 10px;
+}
+
+.petal-values-group {
+  pointer-events: none;
 }
 
 .petal-label,
@@ -246,7 +251,7 @@ footer {
 
 .modal-item.vertical {
   flex-direction: column;
-  gap: var(--spacing);
+  gap: 1rem;
 }
 
 .modal {
@@ -297,6 +302,8 @@ footer {
 
 .link {
   stroke: var(--white);
+  pointer-events: none;
+  stroke-linecap: round;
   /* opacity: 0.5; */
 
   /* stroke-dasharray: 1px 1px; */
@@ -313,16 +320,22 @@ footer {
 }
 
 .leaf {
+  transition: all 300ms ease-out;
   fill: var(--background);
   -webkit-filter: drop-shadow(0px 0px 5px var(--purple-50));
   filter: drop-shadow(0px 0px 5px var(--purple-50));
+  cursor: pointer;
 }
+
 .leaf-1 {
   -webkit-filter: drop-shadow(0px 0px 5px var(--purple-50));
   filter: drop-shadow(0px 0px 5px var(--purple-50));
 }
 .leaf-2 {
   fill: var(--lightblue-2);
+}
+.leaf-2:hover {
+  fill: var(--background);
 }
 
 .logo {
@@ -375,6 +388,15 @@ footer {
   pointer-events: none;
 }
 
+.hex {
+  fill: url(#grad3);
+}
+
+.lollipop-line {
+  stroke: var(--black);
+  stroke-linecap: round;
+}
+
 @media only screen and (min-width: 1000px) {
   main {
     flex-direction: row;
@@ -382,5 +404,8 @@ footer {
 
   .content-wrapper {
     max-width: 33%;
+  }
+  .modal-item {
+    max-width: 500px;
   }
 }
