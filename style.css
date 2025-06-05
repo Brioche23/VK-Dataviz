@@ -45,7 +45,7 @@ body {
   font-family: "DM Sans", "Host Grotesk", Arial, Helvetica, sans-serif;
   background-color: var(--background);
   color: var(--black);
-  min-height: 100vh;
+  min-height: 100svh;
 
   margin: 0 auto;
   max-width: 1440px;
@@ -53,8 +53,8 @@ body {
 
   display: flex;
   flex-direction: column;
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 100svw;
+  max-height: 100svh;
   overflow: hidden;
   font-size: 0.8rem;
   /* gap: var(--spacing); */
