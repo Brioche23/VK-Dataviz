@@ -1,6 +1,7 @@
 import { polarToCartesian } from "./utils/utils.js"
+import { createBreadcrumbsFromNode } from "./fillDataFields.js"
 
-export function drawChart(root, scales, svg, w, h) {
+export function drawChart(root, scales, svg, w, h, isSafari) {
   // const endNodes = root.descendants().filter((d) => d.depth === root.height)
 
   const animationDuration = 800
@@ -60,20 +61,20 @@ export function drawChart(root, scales, svg, w, h) {
     const descendantsSubGroup1 = root.descendants().filter((d) => d.depth === 1)
     const descendantsSubGroup2 = root.descendants().filter((d) => d.depth === 2)
     const descendantsSubGroup3 = root.descendants().filter((d) => d.depth === 3)
-    svg
-      .select("g.leaves")
-      .selectAll(".leaf")
-      .data(descendantsSubGroup1)
-      .join("path")
-      .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
-      .classed("leaf leaf-1", true)
-      .attr("opacity", 0)
-      .attr("filter", "url(#purpleDropShadow)")
-      .transition()
-      .duration(animationDuration)
-      .ease(d3.easeLinear)
-      .delay((d, i) => i * 20)
-      .attr("opacity", 1)
+    // svg
+    //   .select("g.leaves")
+    //   .selectAll(".leaf")
+    //   .data(descendantsSubGroup1)
+    //   .join("path")
+    //   .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
+    //   .classed("leaf leaf-1", true)
+    //   .attr("opacity", 0)
+    //   .transition()
+    //   .duration(animationDuration)
+    //   .ease(d3.easeLinear)
+    //   .delay((d, i) => i * 20)
+    //   .attr("opacity", 1)
+    // // .attr("stroke", isSafari ? "var(--purple-30)" : "")
 
     svg
       .select("g.leaves-2")
@@ -82,14 +83,14 @@ export function drawChart(root, scales, svg, w, h) {
       .join("path")
       .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
       .classed("leaf-2 leaf", true)
-      .on("click", (e, d) => console.log("Petalo del ramo", d.ancestors()))
+      .on("click", (e, d) => console.log("Petalo del ramo", createBreadcrumbsFromNode(d)))
       .attr("opacity", 0)
-      .attr("filter", "url(#purpleDropShadow)")
       .transition()
       .duration(animationDuration)
       .ease(d3.easeLinear)
       .delay((d, i) => i * 20)
       .attr("opacity", 1)
+      .attr("stroke", isSafari ? "var(--purple-30)" : "")
     // svg
     //   .select("g.leaves-3")
     //   .selectAll(".leaf")
@@ -218,12 +219,10 @@ export function drawChart(root, scales, svg, w, h) {
           .attr("stroke-width", 0.5)
 
         d3.select(this)
-
           .append("text")
           .classed("petal-label", true)
-          .text((d) => "Testo")
-
-          .attr("x", 0)
+          .text(winnerProfSkill.proficency)
+          .attr("x", -13)
           .attr("y", 0)
 
         // Draw winner interest as a rounded rectangle (at center, shifted right)
@@ -241,6 +240,21 @@ export function drawChart(root, scales, svg, w, h) {
           .attr("stroke", "#333")
           .attr("stroke-width", 0.5)
           .attr("transform", ` translate(${rectSide / 2}, ${-rectSide / 2}), rotate(${45})`)
+
+        d3.select(this)
+          .append("text")
+          .classed("petal-label", true)
+          .text(winnerProfSkill.interest)
+          .attr("x", 8)
+          .attr("y", 7)
+          .attr("transform", ` translate(${rectSide / 2}, ${-rectSide / 2})`)
+
+        d3.select(this)
+          .append("text")
+          .classed("petal-label", true)
+          .text("Highest Scores")
+          .attr("x", 0)
+          .attr("y", 20)
       })
       .transition()
       .duration(animationDuration)

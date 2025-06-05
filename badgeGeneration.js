@@ -15,6 +15,8 @@ const h = window.innerHeight
 // const w = 700
 // const h = 700
 
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+
 let currentRawData = []
 let zoomLevel = 0
 
@@ -41,9 +43,11 @@ function zoomed(e) {
   console.log(zoomLevel)
 
   if (zoomLevel > zoomTreshold) {
+    d3.selectAll(".petal-label").style("opacity", "1")
     d3.selectAll(".node-label").style("opacity", "1")
   }
   if (zoomLevel < zoomTreshold) {
+    d3.selectAll(".petal-label").style("opacity", "0")
     d3.selectAll(".node-label").style("opacity", "0")
   }
   svg.attr("transform", "translate(" + x + "," + y + ")" + " scale(" + k + ")")
@@ -113,7 +117,7 @@ function fetchAndDraw() {
       const buttonInput = d3.select("#input-button").on("click", () => zoomToNode(root, scales))
 
       // TODO se i dati sono diversi (rawData.length) dai precedenti chiama
-      drawChart(root, scales, svg, w, h)
+      drawChart(root, scales, svg, w, h, isSafari)
     }
   })
 }

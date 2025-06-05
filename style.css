@@ -6,11 +6,13 @@
   --green: #d4e1cc;
   --purple-0: #5452cc00;
   --purple-25: #5452cc00;
+  --purple-30: #5452cc32;
   --purple-50: #5452cc45;
   --purple: #5552cc;
   --lightblue-0: #95caea00;
   --lightblue-50: #95caea75;
   --lightblue: #95c9ea;
+  --lightblue-2: #b0dbf6;
   --acqua: #01a0ac;
 
   --shadow-inner: var(--purple-0);
@@ -312,14 +314,16 @@ footer {
 
 .leaf {
   fill: var(--background);
-  /* -webkit-filter: drop-shadow(0px 0px 5px var(--purple));
-  filter: drop-shadow(0px 0px 5px var(--purple)); */
+  -webkit-filter: drop-shadow(0px 0px 5px var(--purple-50));
+  filter: drop-shadow(0px 0px 5px var(--purple-50));
 }
-/* .leaf-1 {
-  -webkit-filter: drop-shadow(0px 0px 5px var(--purple));
-  filter: drop-shadow(0px 0px 5px var(--purple));
-
-} */
+.leaf-1 {
+  -webkit-filter: drop-shadow(0px 0px 5px var(--purple-50));
+  filter: drop-shadow(0px 0px 5px var(--purple-50));
+}
+.leaf-2 {
+  fill: var(--lightblue-2);
+}
 
 .logo {
   font-weight: 600;

@@ -26,7 +26,7 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
           .append("path")
           .classed("hex", true)
           .attr("d", pathString)
-          .attr("fill", "rgba(255, 255, 255, 0.34)")
+          .attr("fill", "rgba(255, 255, 255, 0.75)")
           .style("opacity", 0)
           .transition()
           .duration(800)
