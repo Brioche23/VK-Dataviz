@@ -10,6 +10,13 @@ const fakeSpreadsheetURL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1Ixj7B6jtD60PeCTaDQtJ02Af9F2du7Peir9-uS7g5g6EObctBZY__NL5nXVZucxHix_y589RCa0f/pub?output=csv"
 const localURL = "survey_data.csv"
 
+// button modal logic
+
+const wrapperFullPage = d3.select("#modal-wrapper-full-page")
+const yesBtn = d3.select("#yesBtn")
+
+yesBtn.on("click", () => wrapperFullPage.style("display", "none"))
+
 const w = window.innerWidth
 const h = window.innerHeight
 // const w = 700

@@ -27,8 +27,8 @@
   --s-blue: #45b7d1;
   --s-green: #33aa80;
   --s-purple: #bb8fce;
-  --s-yellow: #f7dc6f;
-  --s-orange: #f8c471;
+  --s-yellow: #f6df86;
+  --s-orange: #ffb236;
   --s-lightgreen: #82e0aa;
 
   /* ---------- Shadows --------- */
@@ -83,6 +83,8 @@ body {
 
   touch-action: manipulation;
   overscroll-behavior: contain;
+
+  position: relative;
 }
 
 h1,
@@ -118,7 +120,7 @@ main {
 }
 
 #badge-visualization {
-  /* position: absolute; */
+  overflow: visible;
   opacity: 1;
 }
 
@@ -245,7 +247,6 @@ footer {
   width: calc(100vw - 2 * var(--spacing));
   display: flex;
   place-content: space-between;
-
 
   z-index: 3;
 }
@@ -393,7 +394,7 @@ footer {
   font-size: 1rem;
   line-height: 1rem;
 }
-.logo a{
+.logo a {
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
@@ -465,6 +466,52 @@ footer {
 #breadcrumbs .count {
   color: var(--lightblue-dark-2);
   font-size: 0.8rem;
+}
+#modal-wrapper-full-page {
+  position: absolute;
+  width: 100svw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--background-50);
+
+  z-index: 10;
+}
+
+#intro-modal {
+  max-width: 300px;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#intro-modal p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+#intro-modal .buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+#intro-modal .buttons .outlined {
+  background-color: var(--white);
+  color: var(--purple);
+  outline: 1px solid var(--purple);
+}
+#intro-modal .buttons .outlined:hover {
+  background-color: var(--purple-50);
+}
+
+#intro-modal .buttons a {
+  width: 100%;
 }
 
 @media only screen and (min-width: 1000px) {
