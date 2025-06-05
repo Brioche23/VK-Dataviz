@@ -23,12 +23,15 @@ const zoomTreshold = 3
 
 const zoom = d3.zoom().on("zoom", zoomed)
 
+const loadingDiv = d3.select("#loading").style("visibility", "block")
+
 const svg = d3
   .select("#badge-visualization")
   .attr("width", w)
   .attr("height", h)
   .call(zoom)
   .select("g")
+  .style("opacity", 0)
 
 const reloadModal = d3.select("#reload-modal").style("opacity", 0)
 
@@ -55,7 +58,7 @@ function zoomToNode(root, scales) {
 
   d3.select("svg").call(
     zoom.transform,
-    d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + w / k / 2)
+    d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + h / k / 2)
   )
 
   // Find the node with the matching mail in the hierarchy
@@ -80,6 +83,8 @@ setInterval(() => {
 
 function fetchAndDraw() {
   d3.csv(fakeSpreadsheetURL).then((rawData) => {
+    svg.style("opacity", "1")
+    loadingDiv.style("visibility", "hidden")
     if (currentRawData.length === 0) draw()
     else if (rawData.length !== currentRawData.length) {
       // Attivo pulsante / modal che mi fa
@@ -89,7 +94,6 @@ function fetchAndDraw() {
         draw()
       })
     }
-    //  else if (zoomLevel > 2) draw()
 
     function draw() {
       currentRawData = rawData
@@ -104,7 +108,7 @@ function fetchAndDraw() {
       const buttonInput = d3.select("#input-button").on("click", () => zoomToNode(root, scales))
 
       // TODO se i dati sono diversi (rawData.length) dai precedenti chiama
-      drawChart(root, scales, svg, w, h, zoomLevel)
+      drawChart(root, scales, svg, w, h)
     }
   })
 }

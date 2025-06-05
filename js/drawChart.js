@@ -1,7 +1,7 @@
 import { polarToCartesian } from "./utils/utils.js"
 
-export function drawChart(root, scales, svg, w, h, zoomLevel) {
-  const endNodes = root.descendants().filter((d) => d.depth === root.height)
+export function drawChart(root, scales, svg, w, h) {
+  // const endNodes = root.descendants().filter((d) => d.depth === root.height)
 
   const animationDuration = 800
   const delay = 500
@@ -35,7 +35,7 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
 
   //   drawLollipop()
 
-  updateChart(endNodes)
+  // updateChart(endNodes)
 
   function drawCircles() {
     //TODO Compute it
@@ -67,6 +67,13 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
       .join("path")
       .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
       .classed("leaf leaf-1", true)
+      .attr("opacity", 0)
+      .transition()
+      .duration(animationDuration)
+      .ease(d3.easeLinear)
+      .delay((d, i) => i * 20)
+      .attr("opacity", 1)
+
     svg
       .select("g.leaves-2")
       .selectAll(".leaf")
@@ -75,6 +82,12 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
       .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
       .classed("leaf-2 leaf", true)
       .on("click", (e, d) => console.log("Petalo del ramo", d.ancestors()))
+      .attr("opacity", 0)
+      .transition()
+      .duration(animationDuration)
+      .ease(d3.easeLinear)
+      .delay((d, i) => i * 20)
+      .attr("opacity", 1)
     // svg
     //   .select("g.leaves-3")
     //   .selectAll(".leaf")
@@ -131,6 +144,12 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
       .attr("stroke-dasharray", `0 100`)
       .attr("path-length", 100)
       .attr("stroke-width", 1)
+      .transition()
+      .duration(animationDuration)
+      .ease(d3.easeLinear)
+      .delay((d, i) => d.source.depth * delay + i * offset)
+      .attr("stroke", "red")
+      .attr("stroke-dasharray", `${100} ${0}`)
   }
 
   function drawPetals() {
@@ -143,7 +162,7 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
       .data(petals)
       .join("g")
       .classed("petal-values-group", true)
-
+      .attr("opacity", 0)
       .attr("transform", function (d) {
         const petalEndNodes = d.descendants().filter((nd) => nd.depth === d.height + d.depth)
         if (petalEndNodes.length > 0) {
@@ -221,113 +240,11 @@ export function drawChart(root, scales, svg, w, h, zoomLevel) {
           .attr("stroke-width", 0.5)
           .attr("transform", ` translate(${rectSide / 2}, ${-rectSide / 2}), rotate(${45})`)
       })
-  }
-
-  //   function drawLollipop() {
-  //     // console.log(nodes)
-  //     const nodes = root.descendants().filter((d) => d.depth === root.height)
-
-  //     svg
-  //       .select("g.lollipops")
-  //       .selectAll("g.lollipop-group")
-  //       .data(nodes, (d) => d.data.mail)
-  //       .join("g")
-  //       .classed("lollipop-group", true)
-  //       .attr("transform", (d) => `translate(${w / 2 + d.computedX}, ${h / 2 + d.computedY})`)
-  //       .each(function (d) {
-  //         // Remove previous petals if any
-  //         d3.select(this).selectAll("*").remove()
-
-  //         // For each skill, draw a lollipop (line + two dots)
-  //         d.data.skills.forEach((skill, i) => {
-  //           const angle = (i / d.data.skills.length) * 2 * Math.PI - Math.PI / 2
-  //           const profRadius = scales.size(skill.proficency)
-  //           const intRadius = scales.size(skill.interest)
-  //           const profDist = distanceScale(skill.proficency)
-  //           const intDist = distanceScale(skill.interest)
-
-  //           // Line from center to further of the two points
-  //           const maxDist = Math.max(profDist, intDist)
-  //           const x2 = Math.cos(angle) * maxDist
-  //           const y2 = Math.sin(angle) * maxDist
-
-  //           d3.select(this)
-  //             .append("line")
-  //             .attr("x1", 0)
-  //             .attr("y1", 0)
-  //             .attr("x2", x2)
-  //             .attr("y2", y2)
-  //             .attr("stroke", "black")
-  //             // .attr("stroke", scales.color(skill.name))
-  //             .attr("stroke-width", 1)
-  //             .attr("opacity", 1)
-
-  //           // Proficiency dot
-  //           d3.select(this)
-  //             .append("circle")
-  //             .attr("cx", x2)
-  //             .attr("cy", y2)
-  //             .attr("r", profRadius)
-  //             .attr("fill", scales.color(skill.name))
-  //             .attr("opacity", 0.5)
-  //             .classed("petal-element", true)
-
-  //           // Interest dot (slightly different color or stroke)
-  //           d3.select(this)
-  //             .append("rect")
-  //             .attr("width", intRadius)
-  //             .attr("height", intRadius)
-  //             .attr("rx", 1)
-  //             .attr("ry", 1)
-  //             .attr("x", Math.cos(angle) * intDist - intRadius / 2)
-  //             .attr("y", Math.sin(angle) * intDist - intRadius / 2)
-  //             .attr("r", intRadius)
-  //             .attr("fill", scales.color(skill.name))
-  //             .attr("opacity", 0.5)
-  //             .attr("stroke", "#333")
-  //             .attr("stroke-width", 1)
-  //             .classed("petal-element", true)
-  //         })
-  //       })
-  //   }
-
-  function updateChart(endNodes) {
-    // svg
-    //   .select("g.nodes")
-    //   .selectAll("circle.node")
-    //   .data(endNodes)
-    //   .join("circle")
-    //   .classed("node", true)
-    //   .on("click", function (e, d) {
-    //     d3.select(this).style("fill", "red")
-    //     const x = +d3.select(this).attr("cx")
-    //     const y = +d3.select(this).attr("cy")
-    //     const k = 3
-
-    //     d3.select("svg")
-    //       .transition()
-    //       .call(zoom.transform, d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + w / k / 2))
-    //   })
-    //   .transition()
-    //   .duration(animationDuration)
-
-    //   .ease(d3.easeLinear)
-    //   .delay((d, i) => d.depth * delay + i * offset)
-    //   .attr("r", (d) => 2)
-    // .attr("fill", (d) => (d.data.topic ? color(d.data.topic) : ""))
-
-    svg
-      .select("g.links")
-      .selectAll("path.link")
-      .data(root.links())
-      .join("path")
-      .classed("link", true)
       .transition()
       .duration(animationDuration)
       .ease(d3.easeLinear)
-      .delay((d, i) => d.source.depth * delay + i * offset)
-      .attr("stroke", "red")
-      .attr("stroke-dasharray", `${100} ${0}`)
+      .delay((d, i) => i * 20)
+      .attr("opacity", "1")
   }
 }
 

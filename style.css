@@ -103,10 +103,19 @@ svg {
 
 #badge-visualization {
   /* position: absolute; */
+  opacity: 1;
 }
 
 #badge-visualization #main {
-  transition: all 300ms ease-out;
+  transition: all 200ms ease-out;
+}
+#loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-wrapper {
@@ -176,11 +185,8 @@ button:hover {
 }
 
 footer {
-  width: calc(100vw - (var(--spacing) * 2));
-  position: absolute;
-  bottom: 0;
+  width: 100%;
   display: flex;
-  padding: var(--spacing);
   place-content: space-between;
 
   pointer-events: none;
@@ -258,7 +264,7 @@ footer {
 }
 
 .modal-wrapper.top {
-  top: var(--spacing);
+  top: 0;
 }
 
 .modal-wrapper-wrapper.top.out {
@@ -267,16 +273,16 @@ footer {
 .modal-wrapper.top.out {
   top: var(--spacing);
 }
-.modal-wrapper.top.out {
+/* .modal-wrapper.top.out {
   top: -9rem;
-}
+} */
 .modal-wrapper.bottom {
-  bottom: 2rem;
+  bottom: 0rem;
 }
 
-.modal-wrapper.bottom.out {
+/* .modal-wrapper.bottom.out {
   bottom: -7rem;
-}
+} */
 
 .modal-wrapper.legend {
   top: 20rem;
@@ -324,8 +330,8 @@ footer {
 
 .logo {
   font-weight: 600;
-  font-size: var(--spacing);
-  line-height: var(--spacing);
+  font-size: 1rem;
+  line-height: 1rem;
 }
 
 .logo .spaced {
