@@ -113,6 +113,18 @@
                     <stop offset="90%" stop-color="var(--background)" />
                     <stop offset="100%" stop-color="var(--background)" />
                 </radialGradient>
+
+                <filter id="purpleGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <filter id="purpleDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="var(--purple)" />
+                </filter>
             </defs>
             <g id="main">
                 <g class="leaves"></g>
