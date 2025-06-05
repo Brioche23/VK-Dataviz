@@ -1,31 +1,9 @@
 export function fillDataFields(node, scales) {
   createBreadcrumbsFromNode(node)
-  const name = document.querySelector("#name")
-  name.style.display = "block"
-  name.innerHTML = node.data.name
-  //   const country = document.querySelector("#country")
-  //   country.innerHTML = node.data.country
-  //   const topic = document.querySelector("#topic")
-  //   topic.innerHTML = node.data.topic
-  //   const experience = document.querySelector("#experience")
-  //   experience.innerHTML = node.data.experience
-
-  //   const skillsDiv = document.querySelector("#skills")
-  //   skillsDiv.innerHTML = "" // Clear previous skills
-
-  //   node.data.skills.forEach((d) => {
-  //     const skillElem = document.createElement("p")
-  //     skillElem.classList.add("skill-field")
-  //     skillElem.style.color = scales.color(d.name)
-
-  //     skillElem.textContent = `${d.name}: `
-  //     const skillSpan = document.createElement("span")
-  //     skillSpan.textContent = ` Interest ${d.interest}, Proficiency ${d.proficency}`
-  //     skillSpan.style.color = "black"
-
-  //     skillElem.appendChild(skillSpan)
-  //     skillsDiv.appendChild(skillElem)
-  //   })
+  const name = d3.select("#name")
+  name.classed("cta", false)
+  name.style("display", "block")
+  name.text(node.data.name)
 }
 
 export function createBreadcrumbsFromNode(node) {
@@ -37,12 +15,15 @@ export function createBreadcrumbsFromNode(node) {
   crumbs.innerHTML = ""
   const labels = ["Topic", "Role", "IDx exp."]
 
-  console.log(node.ancestors())
   // Get ancestors, skip the root (first element), and reverse the order
   const ancestors = node.ancestors().reverse().slice(1)
 
-  console.log(ancestors)
   ancestors.forEach((ancestor, idx) => {
+    // Add total count of final children (leaf nodes) for this ancestor
+    const leafCount = ancestor
+      .descendants()
+      .filter((d) => !d.children || d.children.length === 0).length
+
     const container = document.createElement("div")
     container.style.display = "inline-block"
     container.style.marginRight = "4px"
@@ -51,12 +32,24 @@ export function createBreadcrumbsFromNode(node) {
     labelSpan.classList.add("label")
     labelSpan.textContent = labels[idx] || ""
 
+    const textP = document.createElement("p")
+    textP.classList.add("value")
+
     const valueSpan = document.createElement("span")
     valueSpan.classList.add("value")
-    valueSpan.textContent = ancestor.data[0]
+
+    const valueText = ancestor.data[0] ?? "Yourself"
+    valueSpan.textContent = valueText
+
+    const countSpan = document.createElement("span")
+    countSpan.classList.add("count")
+    countSpan.textContent = ` ${leafCount}`
+
+    textP.appendChild(valueSpan)
+    textP.appendChild(countSpan)
 
     container.appendChild(labelSpan)
-    container.appendChild(valueSpan)
+    container.appendChild(textP)
     crumbs.appendChild(container)
 
     if (idx < ancestors.length - 1) {

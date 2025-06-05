@@ -16,8 +16,6 @@ export function drawLollipops(svg, nodes, scales, dimensions) {
 
         const polygonPoints = calculateAllCoordinates(nodes, scales, dimensions)
 
-        console.log(polygonPoints)
-
         const lineGen = d3
           .line()
           .x((d) => d.x)

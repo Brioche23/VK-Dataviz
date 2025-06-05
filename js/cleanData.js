@@ -1,5 +1,4 @@
 export function cleanDataset(rawData) {
-  console.log("RawData: ", rawData)
   return rawData.map((d) => ({
     mail: d["Email address"].replace("@", "-").replaceAll(".", "-").toLowerCase(),
     name: d["Name"],

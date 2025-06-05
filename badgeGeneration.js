@@ -42,25 +42,30 @@ function zoomed(e) {
   svgGroup.attr("transform", e.transform)
 }
 
-function zoomToNode(root, scales) {
+function getMailAddress(root) {
   const mailInput = d3.select("#mail-input")
   const originalMail = mailInput.nodes()[0].value
-  const selctedMail = originalMail.replaceAll("@", "-").replaceAll(".", "-").toLowerCase()
+  const selectedMail = originalMail.replaceAll("@", "-").replaceAll(".", "-").toLowerCase()
 
-  console.log(selctedMail)
-  const node = d3.select(`#mail-${selctedMail}`)
-  console.log(node)
+  const selectedNode = root.descendants().find((d) => d.data.mail && d.data.mail === selectedMail)
+
+  if (!selectedNode) {
+    mailInput.classed("wrong", true)
+    // alert("Email not found in the dataset.")
+    return null
+  }
+
+  return selectedMail
+}
+
+function zoomToNode(mail, root, scales) {
+  const node = d3.select(`#mail-${mail}`)
+
   const x = +node.attr("cx")
   const y = +node.attr("cy")
   const k = 3
 
   smoothZoomTo(x, y, k)
-
-  const targetX = -x + w / k / 2
-  const targetY = -y + h / k / 2
-
-  // svg.transition().duration(750).call(zoom.translateTo, x, y) // x=200, y=150
-  // svg.transition().duration(750).call(zoom.scaleTo, k)
 
   function smoothZoomTo(x, y, scale = 2) {
     svg
@@ -76,20 +81,15 @@ function zoomToNode(root, scales) {
       )
   }
 
-  // d3.select("svg").call(
-  //   zoom.transform,
-  //   d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + h / k / 2)
-  // )
-
   // Find the node with the matching mail in the hierarchy
-  const selectedNode = root.descendants().find((d) => d.data.mail && d.data.mail === selctedMail)
+  const selectedNode = root.descendants().find((d) => d.data.mail && d.data.mail === mail)
 
   if (selectedNode) {
-    mailInput.classed("hidden", "true")
+    d3.select("#mail-input").classed("hidden", "true")
     drawLollipops(svgGroup, [selectedNode], scales, { w, h })
     fillDataFields(selectedNode, scales)
   } else {
-    console.warn("Node not found for:", selctedMail)
+    console.warn("Node not found for:", mail)
   }
 }
 
@@ -97,12 +97,11 @@ currentRawData.length === 0 && fetchAndDraw()
 
 const interval = 30000
 setInterval(() => {
-  console.log("Refresh")
   fetchAndDraw()
 }, interval)
 
 function fetchAndDraw() {
-  d3.csv(fakeSpreadsheetURL).then((rawData) => {
+  d3.csv(spreadsheetURL).then((rawData) => {
     svgGroup.style("opacity", "1")
     loadingDiv.style("visibility", "hidden")
     if (currentRawData.length === 0) draw()
@@ -122,22 +121,29 @@ function fetchAndDraw() {
 
     function draw() {
       currentRawData = rawData
-      console.log(rawData.length)
 
       const cleanData = cleanDataset(rawData)
-      console.log("clean data: ", cleanData)
 
       const root = createHierarchy(cleanData)
 
       const scales = computeScales(cleanData)
-      const buttonInput = d3.select("#input-button").on("click", () => zoomToNode(root, scales))
+      const buttonInput = d3.select("#input-button")
+      buttonInput.on("click", () => buttonClick())
       d3.select("#mail-input").on("keydown", function (event) {
         if (event.key === "Enter") {
-          zoomToNode(root, scales)
+          buttonClick()
         }
       })
 
-      // TODO se i dati sono diversi (rawData.length) dai precedenti chiama
+      function buttonClick() {
+        const mail = getMailAddress(root)
+        if (mail) {
+          buttonInput.text("Go to your badge")
+          buttonInput.classed("")
+          zoomToNode(mail, root, scales)
+        }
+      }
+
       drawChart(root, scales, svgGroup, w, h, isSafari)
     }
   })
@@ -153,10 +159,6 @@ function createHierarchy(data) {
   )
 
   const root = d3.hierarchy(treeDataRollup)
-
-  console.log("root", root)
-  console.log("descendants", root.descendants())
-  console.log("links", root.links())
 
   return root
 }
@@ -176,7 +178,6 @@ function computeScales(data) {
   const skillExtent = [1, 5]
 
   const uniqueSkills = data[0].skills.map((d) => d.name)
-  console.log("unique skills", uniqueSkills)
 
   const sizeScale = d3.scaleLinear().domain(skillExtent).range([1, 10])
   const sizeScalePetals = d3.scaleLinear().domain(skillExtent).range([1, 5])

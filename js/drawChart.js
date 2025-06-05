@@ -59,22 +59,10 @@ export function drawChart(root, scales, svg, w, h, isSafari) {
     const outline = d3.line().curve(d3.curveCatmullRomClosed.alpha(1))
 
     const descendantsSubGroup1 = root.descendants().filter((d) => d.depth === 1)
+
+    // TODO Add scale
+
     const descendantsSubGroup2 = root.descendants().filter((d) => d.depth === 2)
-    const descendantsSubGroup3 = root.descendants().filter((d) => d.depth === 3)
-    // svg
-    //   .select("g.leaves")
-    //   .selectAll(".leaf")
-    //   .data(descendantsSubGroup1)
-    //   .join("path")
-    //   .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
-    //   .classed("leaf leaf-1", true)
-    //   .attr("opacity", 0)
-    //   .transition()
-    //   .duration(animationDuration)
-    //   .ease(d3.easeLinear)
-    //   .delay((d, i) => i * 20)
-    //   .attr("opacity", 1)
-    // // .attr("stroke", isSafari ? "var(--purple-30)" : "")
 
     svg
       .select("g.leaves-2")
@@ -83,25 +71,18 @@ export function drawChart(root, scales, svg, w, h, isSafari) {
       .join("path")
       .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
       .classed("leaf-2 leaf", true)
-      .on("click", (e, d) => console.log("Petalo del ramo", createBreadcrumbsFromNode(d)))
+      .on("click", (e, d) => createBreadcrumbsFromNode(d))
       .attr("opacity", 0)
       .transition()
       .duration(animationDuration)
       .ease(d3.easeLinear)
       .delay((d, i) => i * 20)
+      // .attr("opacity", (d) => (d.parent.depth))
       .attr("opacity", 1)
       .attr("stroke", isSafari ? "var(--purple-30)" : "")
-    // svg
-    //   .select("g.leaves-3")
-    //   .selectAll(".leaf")
-    //   .data(descendantsSubGroup3)
-    //   .join("path")
-    //   .attr("d", (d) => outline(d3.polygonHull(getAllDescendantCoordsD3(d, w, h))) + "Z")
-    //   .classed("leaf-2 leaf", true)
   }
 
   function drawNodes(nodes) {
-    console.log("update")
     svg
       .select("g.nodes")
       .selectAll("circle.node")
@@ -124,7 +105,6 @@ export function drawChart(root, scales, svg, w, h, isSafari) {
       .attr("id", (d, i) => `label-${d.depth}-${d.data[0]}-${i}`)
       .attr("x", (d, i) => w / 2 + d.computedX + (i % 10))
       .attr("y", (d, i) => h / 2 + d.computedY + (i % 10))
-      // .attr("transform", `rotate(${-40})`)
       .attr("visibility", (d) => (d.depth === 1 ? "visible" : "hidden"))
   }
 
@@ -157,7 +137,6 @@ export function drawChart(root, scales, svg, w, h, isSafari) {
 
   function drawPetals() {
     const petals = root.descendants().filter((d) => d.depth === root.height - 2)
-    console.log("petals", petals)
 
     svg
       .select("g.petal-values")
