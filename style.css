@@ -13,14 +13,29 @@
   --lightblue-50: #95caea75;
   --lightblue-75: #95caeac9;
   --lightblue: #95c9ea;
+  --lightblue-dark: rgb(132, 160, 178);
   --lightblue-2: #b0dbf6;
   --lightblue-4: #c6e9ff;
   --lightblue-3: #f2faff;
   --acqua: #01a0ac;
 
+  /* ---------- Scale Colors --------- */
+
+  --s-red: #ff6b6b;
+  --s-blue: #45b7d1;
+  --s-green: #33aa80;
+  --s-purple: #bb8fce;
+  --s-yellow: #f7dc6f;
+  --s-orange: #f8c471;
+  --s-lightgreen: #82e0aa;
+
+  /* ---------- Shadows --------- */
+
   --shadow-inner: var(--purple-0);
   --shadow-mid: var(--purple-25);
   --shadow-outer: var(--purple-50);
+
+  /* ---------- Spacing --------- */
 
   --background: var(--lightblue);
   --background-0: var(--lightblue-0);
@@ -106,7 +121,7 @@ main {
 }
 
 #badge-visualization #main {
-  transition: all 200ms ease-out;
+  /* transition: all 200ms ease-out; */
 }
 #loading {
   width: 100%;
@@ -202,7 +217,6 @@ footer {
   stroke-width: 1px;
   fill: var(--white);
   stroke: var(--purple);
-  /* stroke: aqua; */
 }
 
 .node:hover {
@@ -215,10 +229,8 @@ footer {
 
 .petal-label,
 .node-label {
-  /* fill: var(--white); */
+  transition: opacity 300ms ease-out;
   fill: #5552cc;
-  /* transform-origin: 0 0;
-  transform-box: fill-box; */
   opacity: 0;
   font-size: 5px;
 }
@@ -395,6 +407,16 @@ footer {
 .lollipop-line {
   stroke: var(--black);
   stroke-linecap: round;
+}
+
+#breadcrumbs .label {
+  display: block;
+  font-size: var(--spacing);
+  color: var(--lightblue-dark);
+}
+#breadcrumbs .value {
+  display: block;
+  font-size: 0.8rem;
 }
 
 @media only screen and (min-width: 1000px) {

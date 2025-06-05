@@ -18,7 +18,6 @@ const h = window.innerHeight
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
 let currentRawData = []
-let zoomLevel = 0
 
 const zoomThreshold = 3
 // let prevDataLen
@@ -27,26 +26,20 @@ const zoom = d3.zoom().scaleExtent([0.5, 10]).on("zoom", zoomed)
 
 const loadingDiv = d3.select("#loading").style("visibility", "block")
 
-const svg = d3
-  .select("#badge-visualization")
-  .attr("width", w)
-  .attr("height", h)
-  .call(zoom)
-  .select("g")
-  .style("opacity", 0)
+const svg = d3.select("#badge-visualization").attr("width", w).attr("height", h).call(zoom)
+const svgGroup = svg.select("g").style("opacity", 0)
 
 const reloadModal = d3.select("#reload-modal").style("display", "none")
 
 function zoomed(e) {
   const { x, y, k } = e.transform
-  zoomLevel = k
 
   // Toggle labels based on zoom level
   const showLabels = k > zoomThreshold
   d3.selectAll(".petal-label, .node-label").style("opacity", showLabels ? 1 : 0)
 
   // Always apply transform - D3 handles the limits
-  svg.attr("transform", e.transform)
+  svgGroup.attr("transform", e.transform)
 }
 
 function zoomToNode(root, scales) {
@@ -61,17 +54,39 @@ function zoomToNode(root, scales) {
   const y = +node.attr("cy")
   const k = 3
 
-  d3.select("svg").call(
-    zoom.transform,
-    d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + h / k / 2)
-  )
+  smoothZoomTo(x, y, k)
+
+  const targetX = -x + w / k / 2
+  const targetY = -y + h / k / 2
+
+  // svg.transition().duration(750).call(zoom.translateTo, x, y) // x=200, y=150
+  // svg.transition().duration(750).call(zoom.scaleTo, k)
+
+  function smoothZoomTo(x, y, scale = 2) {
+    svg
+      .transition()
+      .duration(1000)
+      .ease(d3.easeCubicInOut)
+      .call(
+        zoom.transform,
+        d3.zoomIdentity
+          .translate(w / 2, h / 2)
+          .scale(scale)
+          .translate(-x, -y)
+      )
+  }
+
+  // d3.select("svg").call(
+  //   zoom.transform,
+  //   d3.zoomIdentity.scale(k).translate(-x + w / k / 2, -y + h / k / 2)
+  // )
 
   // Find the node with the matching mail in the hierarchy
   const selectedNode = root.descendants().find((d) => d.data.mail && d.data.mail === selctedMail)
 
   if (selectedNode) {
     mailInput.classed("hidden", "true")
-    drawLollipops(svg, [selectedNode], scales, { w, h })
+    drawLollipops(svgGroup, [selectedNode], scales, { w, h })
     fillDataFields(selectedNode, scales)
   } else {
     console.warn("Node not found for:", selctedMail)
@@ -88,7 +103,7 @@ setInterval(() => {
 
 function fetchAndDraw() {
   d3.csv(fakeSpreadsheetURL).then((rawData) => {
-    svg.style("opacity", "1")
+    svgGroup.style("opacity", "1")
     loadingDiv.style("visibility", "hidden")
     if (currentRawData.length === 0) draw()
     else if (rawData.length !== currentRawData.length) {
@@ -123,7 +138,7 @@ function fetchAndDraw() {
       })
 
       // TODO se i dati sono diversi (rawData.length) dai precedenti chiama
-      drawChart(root, scales, svg, w, h, isSafari)
+      drawChart(root, scales, svgGroup, w, h, isSafari)
     }
   })
 }
@@ -149,13 +164,13 @@ function createHierarchy(data) {
 function computeScales(data) {
   // Define a color palette
   const colorPalette = [
-    "#FF6B6B", // Coral Red
-    "#45B7D1", // Sky Blue
-    "#33AA80", // Warm Yellow
-    "#BB8FCE", // Light Purple
-    "#F7DC6F", // Banana Yellow
-    "#F8C471", // Peach
-    "#82E0AA", // Light Green
+    "var(--s-red)",
+    "var(--s-blue)",
+    "var(--s-green)",
+    "var(--s-purple)",
+    "var(--s-yellow)",
+    "var(--s-orange)",
+    "var(--s-lightgreen)",
   ]
 
   const skillExtent = [1, 5]

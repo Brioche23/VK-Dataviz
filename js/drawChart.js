@@ -259,7 +259,7 @@ export function drawChart(root, scales, svg, w, h, isSafari) {
       .transition()
       .duration(animationDuration)
       .ease(d3.easeLinear)
-      .delay((d, i) => i * 20)
+      .delay((d, i) => 1000 + i * 20)
       .attr("opacity", "1")
   }
 }

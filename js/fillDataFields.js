@@ -48,14 +48,12 @@ export function createBreadcrumbsFromNode(node) {
     container.style.marginRight = "4px"
 
     const labelSpan = document.createElement("span")
+    labelSpan.classList.add("label")
     labelSpan.textContent = labels[idx] || ""
-    labelSpan.style.display = "block"
-    labelSpan.style.fontSize = "0.8em"
-    labelSpan.style.color = "#888"
 
     const valueSpan = document.createElement("span")
+    valueSpan.classList.add("value")
     valueSpan.textContent = ancestor.data[0]
-    valueSpan.style.display = "block"
 
     container.appendChild(labelSpan)
     container.appendChild(valueSpan)
