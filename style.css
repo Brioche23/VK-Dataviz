@@ -246,7 +246,6 @@ footer {
   display: flex;
   place-content: space-between;
 
-  pointer-events: none;
 
   z-index: 3;
 }
@@ -393,6 +392,11 @@ footer {
   font-weight: 600;
   font-size: 1rem;
   line-height: 1rem;
+}
+.logo a{
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .logo .spaced {

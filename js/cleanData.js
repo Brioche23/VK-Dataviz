@@ -1,3 +1,13 @@
+const possibeRoles = [
+  "Freelancer",
+  "Student",
+  "Researcher",
+  "Entrepreneur",
+  "Employed creative professional",
+  "Public servant",
+  "Teacher",
+]
+
 export function cleanDataset(rawData) {
   return rawData.map((d) => ({
     mail: d["Email address"].replace("@", "-").replaceAll(".", "-").toLowerCase(),
@@ -14,10 +24,10 @@ export function cleanDataset(rawData) {
     experience:
       d["What is your level of experience in information design / data visualisation?"] ===
       "I'm interested in finding work related to information design / data visualisation"
-        ? "Interest"
+        ? "Interest in IDx"
         : d["What is your level of experience in information design / data visualisation?"] ===
           "I am currently working on information design / data visualisation"
-        ? "Just a project"
+        ? "It's my job"
         : d["What is your level of experience in information design / data visualisation?"],
     skills: [
       {
